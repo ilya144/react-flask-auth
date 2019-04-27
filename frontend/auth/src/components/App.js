@@ -10,12 +10,21 @@ export default class App extends Component{
 		signUp: "show",
 		signIn: "hide",
 	}
+	
+	ChangeDisplay = () => {
+		if (this.state.signUp === "show"){
+			this.setState({signUp: "hide", signIn: "show"});
+		} else {
+			this.setState({signUp: "show", signIn: "hide"});
+		}
+		console.log(this.state.signUp)
+	}
 
 	render() {
 		return(
 		<div className="main">
-			<SignIn signIn={this.state.signIn} />
-			<SignUp signUp={this.state.signUp} />
+			<SignIn signIn={this.state.signIn} callback={() => this.ChangeDisplay()}/>
+			<SignUp signUp={this.state.signUp} callback={() => this.ChangeDisplay()}/>
 		</div>
 		)
 	}

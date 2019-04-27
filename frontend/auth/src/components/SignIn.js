@@ -7,25 +7,35 @@ export default class SignIn extends Component{
 		super(props);
 		this.state = {
 			signIn: props.signIn
-		}
+		};
+		// this.handleClick = this.handleClick.bind(this);
 
+	}
+
+	componentWillReceiveProps(nextProps){
+        this.setState(nextProps);
+    }
+
+	handleClick = () => {
+		this.props.callback();
+	    // this.setState({signIn: "hide"});
 	}
 	
 	render(){
 		var display = {"display": this.state.signIn==="show" ? "flex" : "none"}
-		console.log("stateIn", this.state.signIn)
+		
 		return(
 		<section className="sign-in" style={display}>
             <div className="container">
                 <div className="signin-content">
                     <div className="signin-image">
                         <figure><img src={require('../images/signin-image.jpg')} alt="" /></figure>
-                        <a href="#" className="signup-image-link">Create an account</a>
+                        <a onClick={() => this.handleClick()} className="signup-image-link noselect">Create an account</a>
                     </div>
 
                     <div className="signin-form">
                         <h2 className="form-title">Sign in</h2>
-                        <form method="POST" className="register-form" id="login-form">
+                        <form action="/login" method="POST" className="register-form" id="login-form">
                             <div className="form-group">
                                 <label htmlFor="your_name"><i className="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>

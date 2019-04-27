@@ -297,6 +297,7 @@ figure {
   color: #222;
   display: block;
   text-align: center; }
+.signup-image-link:hover{cursor: pointer; text-decoration: underline;}
 
 .term-service {
   font-size: 13px;
@@ -590,3 +591,13 @@ label.valid {
     margin-bottom: 10px; } }
 
 /*# sourceMappingURL=style.css.map */
+
+.noselect {
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome and Opera */
+}

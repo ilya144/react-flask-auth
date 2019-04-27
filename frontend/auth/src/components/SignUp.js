@@ -8,20 +8,29 @@ export default class SignUp extends Component{
 		this.state = {
 			signUp: props.signUp
 		}
-        console.log(props)
+        // this.handleClick = this.handleClick.bind(this);
 
 	}
+
+    componentWillReceiveProps(nextProps){
+        this.setState(nextProps);
+    }
+
+    handleClick = () => {
+        this.props.callback()
+        // this.setState({signUp: "hide"});
+    }
 	
 	render(){
         var display = {"display": this.state.signUp==="show" ? "flex" : "none"}
-        console.log("stateUp", this.state.signUp)
+        
         return(
 		<section className="signup" style={display}>
             <div className="container">
                 <div className="signup-content">
                     <div className="signup-form">
                         <h2 className="form-title">Sign up</h2>
-                        <form method="POST" className="register-form" id="register-form">
+                        <form action="/register" method="POST" className="register-form" id="register-form">
                             <div className="form-group">
                                 <label htmlFor="name"><i className="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name" id="name" placeholder="Your Name"/>
@@ -49,7 +58,7 @@ export default class SignUp extends Component{
                     </div>
                     <div className="signup-image">
                         <figure><img src={require('../images/signup-image.jpg')} alt="" /></figure>
-                        <a href="#" className="signup-image-link">I am already member</a>
+                        <a className="signup-image-link noselect" onClick={() => this.handleClick()}>I am already member</a>
                     </div>
                 </div>
             </div>
