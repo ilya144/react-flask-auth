@@ -17,7 +17,6 @@ export default class App extends Component{
 		} else {
 			this.setState({signUp: "show", signIn: "hide"});
 		}
-		console.log(this.state.signUp)
 	}
 
 	render() {
