@@ -1,2 +1,2 @@
 flask>=1.0.2
-Flask-JWT>=0.3.2
+pyjwt>=1.4.2
